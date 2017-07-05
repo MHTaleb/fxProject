@@ -1,0 +1,40 @@
+
+.table-row-cell:selected {
+
+    -fx-border-width:2.0; 
+}
+ .table-row-cell{
+    
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
+    -fx-padding: 0.0em; 
+}
+.table-row-cell:odd{
+    
+    -fx-background-insets: 0.0, 0.0 0.0 1.0 0.0;
+    -fx-padding: 0.0em;  
+}
+.table-view .table-cell{
+    -fx-font-family: arial;
+    -fx-font-weight:light;
+    -fx-font-size:15px;           
+     -fx-alignment-adjust: center;
+     align-content: center;
+    
+}
+
+.table-view .table-row-cell:hover{
+    -fx-font-weight:bold;
+    -fx-font-size:15px;           
+     -fx-alignment-adjust: center;
+     -fx-align-content: center;
+     -fx-background-color: #b7c6e8;
+    -fx-font-family: arial;
+}
+.table-view .table-row-cell:selected{
+    -fx-font-weight:bold;
+    -fx-font-size:15px;           
+     -fx-alignment-adjust: center;
+     -fx-align-content: center;
+     -fx-background-color: #8895b3;
+    -fx-font-family: arial;
+}

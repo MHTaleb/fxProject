@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" pkg="com.talcorp.piecedetachee.jpa.entities" v="2.6" thm="PMacColorScheme" sm="false" xs="false" id="_14873642170001" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity lbl-ref="_14873642170533" xre="false" compositePrimaryKeyType="IDCLASS" compositePrimaryKeyClass="FacturePK" abs="false" class="Facture" visibile="true" minimized="false" rootElement="_14873642170001" id="_14873642170532">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="java.util.Date" visibile="true" name="date" id="_14873642170534">
+                <jpa:bv/>
+                <jpa:temporal>DATE</jpa:temporal>
+                <jpa:column name="DATE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" visibile="true" name="montantGlobal" id="_14873642170696">
+                <jpa:bv/>
+                <jpa:column name="MONTANT_GLOBAL" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="numeroFacture" id="_148736440808172">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:one-to-one own="true" orp="false" optional="true" primaryKey="true" connected-entity-id="_148736421750141" visibile="true" name="fournisseur" id="_1488923019667341"/>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_14873642170533">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Facture.findAll">
+            <jpa:query>SELECT f FROM Facture f</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Facture.findById">
+            <jpa:query>SELECT f FROM Facture f WHERE f.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Facture.findByDate">
+            <jpa:query>SELECT f FROM Facture f WHERE f.date = :date</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Facture.findByIdFournisseur">
+            <jpa:query>SELECT f FROM Facture f WHERE f.idFournisseur = :idFournisseur</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Facture.findByMontantGlobal">
+            <jpa:query>SELECT f FROM Facture f WHERE f.montantGlobal = :montantGlobal</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Facture.findByNumeroFacture">
+            <jpa:query>Select f from Facture f where f.numeroFacture=:numeroFacture</jpa:query>
+        </jpa:nq>
+        <jpa:table name="factures"/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_14873642171158" xre="false" compositePrimaryKeyClass="ProduitPK" abs="false" class="Produit" visibile="true" minimized="false" rootElement="_14873642170001" id="_14873642171157">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" visibile="true" name="titre" id="_14873642171159">
+                <jpa:bv/>
+                <jpa:column name="TITRE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="int" visibile="true" name="qtMin" id="_148736421711510">
+                <jpa:bv/>
+                <jpa:column name="QT_MIN" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" visibile="true" name="codebar" id="_148736421711511">
+                <jpa:bv/>
+                <jpa:column name="CODEBAR" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:one-to-many orp="false" own="true" collection-type="java.util.List" connected-entity-id="_148736421753948" visibile="true" name="marques" id="_1487372030933333"/>
+            <jpa:one-to-one own="true" orp="false" optional="true" primaryKey="false" connected-entity-id="_148736421733827" visibile="true" name="categorie" id="_1487372025251332"/>
+            <jpa:embedded connected-class-id="_1488407949769" visibile="true" name="detailProduit" id="_148840803792121">
+                <jpa:bv/>
+            </jpa:embedded>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_14873642171158">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Produit.findAll">
+            <jpa:query>SELECT p FROM Produit p</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Produit.findById">
+            <jpa:query>SELECT p FROM Produit p WHERE p.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Produit.findByTitre">
+            <jpa:query>SELECT p FROM Produit p WHERE p.titre = :titre</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Produit.findByQtMin">
+            <jpa:query>SELECT p FROM Produit p WHERE p.qtMin = :qtMin</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Produit.findByCodebar">
+            <jpa:query>SELECT p FROM Produit p WHERE p.codebar = :codebar</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Produit.findByDetail">
+            <jpa:query>SELECT p FROM Produit p WHERE p.detail = :detail</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Produit.findByAttribute">
+            <jpa:query>Select p from Produit p where p.attribute=:attribute</jpa:query>
+        </jpa:nq>
+        <jpa:table name="produits"/>
+    </jpa:entity>
+    <jpa:entity xre="false" compositePrimaryKeyClass="UsersPK" abs="false" class="Users" visibile="false" minimized="false" rootElement="_14873642170001" id="_148736421713813">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="int" visibile="true" name="state" id="_148736421713815">
+                <jpa:bv/>
+                <jpa:column name="STATE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="username" id="_148736421713816">
+                <jpa:bv/>
+                <jpa:column name="USERNAME" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="password" id="_148736421713817">
+                <jpa:bv/>
+                <jpa:column name="PASSWORD" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" visibile="true" name="profile" id="_148736421713818">
+                <jpa:bv/>
+                <jpa:column name="PROFILE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421713814">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Users.findAll">
+            <jpa:query>SELECT u FROM Users u</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Users.findById">
+            <jpa:query>SELECT u FROM Users u WHERE u.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Users.findByState">
+            <jpa:query>SELECT u FROM Users u WHERE u.state = :state</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Users.findByUsername">
+            <jpa:query>SELECT u FROM Users u WHERE u.username = :username</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Users.findByPassword">
+            <jpa:query>SELECT u FROM Users u WHERE u.password = :password</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Users.findByProfile">
+            <jpa:query>SELECT u FROM Users u WHERE u.profile = :profile</jpa:query>
+        </jpa:nq>
+        <jpa:table name="users"/>
+    </jpa:entity>
+    <jpa:entity xre="false" compositePrimaryKeyClass="VentePK" abs="false" class="Vente" visibile="true" minimized="false" rootElement="_14873642170001" id="_148736421723822">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Integer" visibile="true" name="prixFinal" id="_148736421723825">
+                <jpa:bv/>
+                <jpa:column name="PRIX_FINAL" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="java.util.Date" visibile="true" name="dateVente" id="_148736421723826">
+                <jpa:bv/>
+                <jpa:temporal>DATE</jpa:temporal>
+                <jpa:column name="DATE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="quantiteVendu" id="_148892123321137">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:one-to-many own="true" collection-type="java.util.List" connected-entity-id="_148736421760151" visibile="true" name="approvisionements" id="_149105868104542"/>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421723823">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Vente.findAll">
+            <jpa:query>SELECT v FROM Vente v</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Vente.findById">
+            <jpa:query>SELECT v FROM Vente v WHERE v.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Vente.findByIdProduit">
+            <jpa:query>SELECT v FROM Vente v WHERE v.idProduit = :idProduit</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Vente.findByPrixFinal">
+            <jpa:query>SELECT v FROM Vente v WHERE v.prixFinal = :prixFinal</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Vente.findByDateVente">
+            <jpa:query>SELECT v FROM Vente v WHERE v.dateVente = :dateVente</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Vente.findByQuantiteVendu">
+            <jpa:query>Select v from Vente v where v.quantiteVendu=:quantiteVendu</jpa:query>
+        </jpa:nq>
+        <jpa:table name="vente"/>
+    </jpa:entity>
+    <jpa:entity xre="false" compositePrimaryKeyClass="CategoriePK" abs="false" class="Categorie" visibile="true" minimized="false" rootElement="_14873642170001" id="_148736421733827">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" visibile="true" name="titreCategorie" id="_148736421733829">
+                <jpa:bv/>
+                <jpa:column name="TITRE_CATEGORIE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic fetch="LAZY" optional="true" attribute-type="byte[]" visibile="true" name="logo" id="_148736857272989">
+                <jpa:bv/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421733828">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Categorie.findAll">
+            <jpa:query>SELECT c FROM Categorie c</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Categorie.findById">
+            <jpa:query>SELECT c FROM Categorie c WHERE c.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Categorie.findByTitreCategorie">
+            <jpa:query>SELECT c FROM Categorie c WHERE c.titreCategorie = :titreCategorie</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="false" name="Categorie.findByLogo">
+            <jpa:query>Select c from Categorie c where c.logo=:logo</jpa:query>
+        </jpa:nq>
+        <jpa:table name="categories"/>
+    </jpa:entity>
+    <jpa:entity xre="false" compositePrimaryKeyClass="ProfilesPK" abs="false" class="Profiles" visibile="false" minimized="false" rootElement="_14873642170001" id="_148736421738530">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" visibile="true" name="titre" id="_148736421738532">
+                <jpa:bv/>
+                <jpa:column name="TITRE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421738531">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Profiles.findAll">
+            <jpa:query>SELECT p FROM Profiles p</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Profiles.findById">
+            <jpa:query>SELECT p FROM Profiles p WHERE p.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Profiles.findByTitre">
+            <jpa:query>SELECT p FROM Profiles p WHERE p.titre = :titre</jpa:query>
+        </jpa:nq>
+        <jpa:table name="profiles"/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_148736421750142" xre="false" compositePrimaryKeyClass="FournisseurPK" abs="false" class="Fournisseur" visibile="true" minimized="false" rootElement="_14873642170001" id="_148736421750141">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic optional="false" attribute-type="String" visibile="true" name="nom" id="_148736421750143">
+                <jpa:bv/>
+                <jpa:column name="NOM" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" visibile="true" name="prenom" id="_148736421750144">
+                <jpa:bv/>
+                <jpa:column name="PRENOM" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic optional="false" attribute-type="String" visibile="true" name="marqueCommercial" id="_148736421750147">
+                <jpa:bv/>
+                <jpa:column name="MARQUE_COMMERCIAL" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:one-to-many orp="false" own="true" collection-type="java.util.List" connected-entity-id="_14873642170532" visibile="true" name="factures" id="_1488923005017339"/>
+            <jpa:embedded connected-class-id="_1487368251497" visibile="true" name="coordonnee" id="_148736845346388">
+                <jpa:bv/>
+            </jpa:embedded>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421750142">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Fournisseur.findAll">
+            <jpa:query>SELECT f FROM Fournisseur f</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findById">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findByNom">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.nom = :nom</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findByPrenom">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.prenom = :prenom</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findByAdresse">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.adresse = :adresse</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findByTelephone">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.telephone = :telephone</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Fournisseur.findByMarqueCommercial">
+            <jpa:query>SELECT f FROM Fournisseur f WHERE f.marqueCommercial = :marqueCommercial</jpa:query>
+        </jpa:nq>
+        <jpa:table name="fournisseur"/>
+    </jpa:entity>
+    <jpa:entity xre="false" compositePrimaryKeyClass="MarquePK" abs="false" class="Marque" visibile="true" minimized="false" rootElement="_14873642170001" id="_148736421753948">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" visibile="true" name="titreMarque" id="_148736421753950">
+                <jpa:bv/>
+                <jpa:column name="TITRE_MARQUES" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421753949">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Marque.findAll">
+            <jpa:query>SELECT m FROM Marque m</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Marque.findById">
+            <jpa:query>SELECT m FROM Marque m WHERE m.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Marque.findByTitreMarque">
+            <jpa:query>SELECT m FROM Marque m WHERE m.titreMarque = :titreMarque</jpa:query>
+        </jpa:nq>
+        <jpa:table name="marques"/>
+    </jpa:entity>
+    <jpa:entity lbl-ref="_148736421760152" xre="false" compositePrimaryKeyType="IDCLASS" compositePrimaryKeyClass="ApprovisionementPK" abs="false" class="Approvisionement" visibile="true" minimized="false" rootElement="_14873642170001" id="_148736421760151">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:annotation e="true" n="@javax.xml.bind.annotation.XmlRootElement"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="Integer" visibile="true" name="quantite" id="_148736421760155">
+                <jpa:bv/>
+                <jpa:column name="QUANTITE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" visibile="true" name="prixAchat" id="_148736421760156">
+                <jpa:bv/>
+                <jpa:column name="PRIX_ACHAT" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:basic attribute-type="Integer" visibile="true" name="prixVente" id="_148736421760157">
+                <jpa:bv/>
+                <jpa:column name="PRIX_VENTE" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+            </jpa:basic>
+            <jpa:one-to-one own="true" orp="false" optional="true" primaryKey="true" connected-entity-id="_14873642171157" visibile="true" name="produit" id="_1488921864158120"/>
+            <jpa:one-to-one own="true" orp="false" optional="true" primaryKey="true" connected-entity-id="_14873642170532" visibile="true" name="facture" id="_1488922886598333">
+                <jpa:join-column name="FACTURE_FOURNISSEUR_ID" rc="FOURNISSEUR_ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <jpa:join-column name="FACTURE_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </jpa:one-to-one>
+            <jpa:id attribute-type="Integer" visibile="true" name="id" id="_148736421760152">
+                <jpa:bv/>
+                <jpa:column name="ID" unique="false" nullable="true" insertable="true" updatable="true" length="255" precision="0" scale="0"/>
+                <jpa:generated-value strategy="IDENTITY"/>
+            </jpa:id>
+        </jpa:attributes>
+        <jpa:nq e="true" name="Approvisionement.findAll">
+            <jpa:query>SELECT a FROM Approvisionement a</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findById">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.id = :id</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findByIdFacture">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.idFacture = :idFacture</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findByIdProduit">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.idProduit = :idProduit</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findByQuantite">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.quantite = :quantite</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findByPrixAchat">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.prixAchat = :prixAchat</jpa:query>
+        </jpa:nq>
+        <jpa:nq e="true" name="Approvisionement.findByPrixVente">
+            <jpa:query>SELECT a FROM Approvisionement a WHERE a.prixVente = :prixVente</jpa:query>
+        </jpa:nq>
+        <jpa:table name="approvisionement"/>
+    </jpa:entity>
+    <jpa:embeddable abs="false" class="Coordonnee" visibile="true" minimized="false" rootElement="_14873642170001" id="_1487368251497">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" visibile="true" name="adresse" id="_148736829905285">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="telephone" id="_148736833675686">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="email" id="_148736833706087">
+                <jpa:bv/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:embeddable>
+    <jpa:embeddable abs="false" class="DetailProduit" visibile="true" minimized="false" rootElement="_14873642170001" id="_1488407949769">
+        <jpa:ts e="true"/>
+        <jpa:hc e="true"/>
+        <jpa:eq e="true"/>
+        <jpa:attributes>
+            <jpa:basic attribute-type="String" visibile="true" name="NumeroLot" id="_148840796679219">
+                <jpa:bv/>
+            </jpa:basic>
+            <jpa:basic attribute-type="String" visibile="true" name="NumeroSerie" id="_148840797947320">
+                <jpa:bv/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:embeddable>
+    <jpa:snp e="true" loc="BEFORE_PACKAGE">/**
+ * This file was generated by the JPA Modeler
+ */</jpa:snp>
+    <jpa:c>
+        <ct>java.util.List</ct>
+        <ct>java.util.Set</ct>
+        <ct>java.util.Map</ct>
+        <ct>java.util.Collection</ct>
+    </jpa:c>
+    <jpa:diagram>
+        <plane elementRef="_14873642170001">
+            <shape elementRef="_14873642170532">
+                <Bounds x="502.0" y="298.0" width="139.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_14873642171157">
+                <Bounds x="502.0" y="804.0" width="137.0" height="223.0"/>
+            </shape>
+            <shape elementRef="_148736421723822">
+                <Bounds x="968.0" y="804.0" width="163.0" height="168.0"/>
+            </shape>
+            <shape elementRef="_148736421733827">
+                <Bounds x="1187.0" y="1081.0" width="151.0" height="113.0"/>
+            </shape>
+            <shape elementRef="_148736421750141">
+                <Bounds x="265.0" y="32.0" width="164.0" height="202.0"/>
+            </shape>
+            <shape elementRef="_148736421753948">
+                <Bounds x="265.0" y="1091.0" width="139.0" height="92.0"/>
+            </shape>
+            <shape elementRef="_148736421760151">
+                <Bounds x="705.0" y="530.0" width="199.0" height="189.0"/>
+            </shape>
+            <shape elementRef="_1487368251497">
+                <Bounds x="32.0" y="298.0" width="169.0" height="100.0"/>
+            </shape>
+            <shape elementRef="_1488407949769">
+                <Bounds x="265.0" y="530.0" width="173.0" height="79.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>

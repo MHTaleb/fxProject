@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="424.0" prefWidth="604.0" HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talcorp.piecedetachee.approvisionement.ApprovisionementController">
+   <children>
+      <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #8895b3;">
+               <children>
+                  <ComboBox fx:id="searchFilter" prefHeight="25.0" prefWidth="236.0" />
+                  <TextField fx:id="searchField" prefHeight="25.0" prefWidth="441.0" promptText="Recherche" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#doSearch" prefHeight="25.0" prefWidth="170.0" text="Rechercher" />
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
+            </HBox>
+            <HBox prefHeight="44.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TableView fx:id="mainGrid" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <columns>
+                        <TableColumn fx:id="columnID" prefWidth="75.0" text="ID_Approvisionement" visible="false" />
+                        <TableColumn fx:id="columnFacture" prefWidth="75.0" text="Facture" />
+                        <TableColumn fx:id="columnProduit" prefWidth="-1.0" text="Produit" />
+                        <TableColumn fx:id="columnQTAchat" prefWidth="75.0" text="Quantité achetter" />
+                        <TableColumn fx:id="columnPA" prefWidth="75.0" text="Prix Achat" />
+                     </columns>
+                  </TableView>
+               </children>
+            </HBox>
+            <HBox prefHeight="43.0" prefWidth="600.0" style="-fx-background-color: #153688;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="24.0" HBox.hgrow="NEVER">
+                     <children>
+                        <Button fx:id="printBTN" mnemonicParsing="false" onAction="#doPrint" text="Imprimer" />
+                     </children>
+                     <padding>
+                        <Insets left="24.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="71.0" prefWidth="450.0" spacing="24.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="addBTN" mnemonicParsing="false" onAction="#doADD" text="Ajouter" />
+                        <Button fx:id="updateBTN" mnemonicParsing="false" onAction="#doUpdate" text="Modifier" />
+                        <Button fx:id="deleteBTN" mnemonicParsing="false" onAction="#doDelete" text="Suprimer" />
+                     </children>
+                     <padding>
+                        <Insets right="24.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

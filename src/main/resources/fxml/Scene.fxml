@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.talcorp.piecedetachee.projetfx.FXMLController">
+   <children>
+      <VBox HBox.hgrow="ALWAYS">
+         <children>
+            <AnchorPane fx:id="menuPane" prefHeight="23.0" prefWidth="929.0" VBox.vgrow="NEVER">
+               <children>
+                  <MenuBar fx:id="menuBar" layoutX="14.0" layoutY="8.0" prefHeight="32.0" prefWidth="930.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <menus>
+                      <Menu fx:id="menuFichier" mnemonicParsing="false" text="Fichier">
+                        <items>
+                          <MenuItem fx:id="menuItemQuitter" mnemonicParsing="false" onAction="#actionQuitter" text="Quiter">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="ANY" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                        <Menu fx:id="menuVente" mnemonicParsing="false" text="Vente">
+                          <items>
+                            <MenuItem fx:id="menuItemMagasin" mnemonicParsing="false" onAction="#actionShowMagasin" text="Magasin">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="M" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemCaisse" mnemonicParsing="false" onAction="#actionShowCaisse" text="Caisse du jour">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemSortie" mnemonicParsing="false" onAction="#actionShowSortie" text="Bon de Sortie">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="B" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                          </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Edition">
+                        <items>
+                          <MenuItem fx:id="menuItemFournisseur" mnemonicParsing="false" onAction="#actionShowFournisseur" text="Fournisseur">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="F" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemProduit" mnemonicParsing="false" onAction="#actionShowProduit" text="Produit">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="P" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                        <Menu mnemonicParsing="false" text="Approvisionement">
+                           <items>
+                              <MenuItem fx:id="menuItemFacture" mnemonicParsing="false" onAction="#actionShowFacture" text="Facture">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="ANY" code="F" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                              <MenuItem fx:id="menuItemStock" mnemonicParsing="false" onAction="#actionShowStock" text="Stock">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="S" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                           </items>
+                        </Menu>
+                      <Menu mnemonicParsing="false" text="Aide">
+                        <items>
+                          <MenuItem fx:id="menuItemContact" mnemonicParsing="false" onAction="#actionShowContact" text="Contact">
+                                 <accelerator>
+                                    <KeyCodeCombination alt="UP" code="C" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                                 </accelerator>
+                              </MenuItem>
+                        </items>
+                      </Menu>
+                    </menus>
+                  </MenuBar>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="542.0" prefWidth="929.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="256.0" prefWidth="929.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Accordion fx:id="accordion" style="-fx-background-color: #8895b3;" HBox.hgrow="NEVER">
+                          <panes>
+                            <TitledPane animated="false" style="-fx-background-color: #e2e2e2;" text="La Boutique">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #e2e2e2;">
+                                       <children>
+                                          <VBox layoutX="24.0" layoutY="14.0" prefHeight="469.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: #e2e2e2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Button fx:id="buttonQuickSell" mnemonicParsing="false" onAction="#showQuickSellOnTab" prefHeight="25.0" prefWidth="196.0" text="Vente rapide" />
+                                                <Button fx:id="buttonFundsToday" mnemonicParsing="false" onAction="#showFundsToday" prefHeight="25.0" prefWidth="185.0" text="Caisse du jour" />
+                                                <Button fx:id="buttonArticleBack" mnemonicParsing="false" prefHeight="25.0" prefWidth="185.0" text="Retour d'article" />
+                                                <Button fx:id="buttonAlertes" mnemonicParsing="false" onAction="#showAlertes" prefHeight="25.0" prefWidth="185.0" text="Alertes" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" style="-fx-background-color: #e2e2e2;" text="Arriere Boutique">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #e2e2e2;">
+                                       <children>
+                                          <VBox prefHeight="472.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: #e2e2e2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Button fx:id="buttonStoque" mnemonicParsing="false" onAction="#showStoque" prefHeight="25.0" prefWidth="185.0" text="Stoque " />
+                                                <Button fx:id="buttonFournisseur" mnemonicParsing="false" onAction="#showFournisseur" prefHeight="25.0" prefWidth="185.0" text="Fournisseurs" />
+                                                <Button fx:id="buttonPrestataires" mnemonicParsing="false" onAction="#showPrestataires" prefHeight="25.0" prefWidth="185.0" text="Prestataires" />
+                                                <Button fx:id="buttonApprovisionement" mnemonicParsing="false" onAction="#showApprovisionement" prefHeight="25.0" prefWidth="185.0" text="Approvisionement" />
+                                                <Button fx:id="buttonFactures" mnemonicParsing="false" onAction="#showFactures" prefHeight="25.0" prefWidth="185.0" text="Factures" />
+                                                <Button fx:id="buttonProduits" mnemonicParsing="false" onAction="#showProduits" prefHeight="25.0" prefWidth="185.0" text="Produits" />
+                                                <Button fx:id="buttonRemarques" mnemonicParsing="false" onAction="#showRemarques" prefHeight="25.0" prefWidth="185.0" text="Remarques" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" style="-fx-background-color: #e2e2e2;" text="Suplementaire">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #e2e2e2;">
+                                       <children>
+                                          <VBox layoutX="14.0" layoutY="14.0" prefHeight="472.0" prefWidth="200.0" spacing="8.0" style="-fx-background-color: #e2e2e2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <Button fx:id="buttonServiceApresVente" mnemonicParsing="false" onAction="#showServiceAVente" prefHeight="25.0" prefWidth="190.0" text="Service après vente" />
+                                                <Button fx:id="buttonPropos" mnemonicParsing="false" onAction="#showPropos" prefHeight="25.0" prefWidth="190.0" text="A propos" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                        <HBox fx:id="mainHBoxContainer" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #8895b3;" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</HBox>
